@@ -17,10 +17,13 @@
 
     <input id="submitBtn" type="button" value="回答を送信" /><br><br>
 
+    <label for="userAnswerResult">回答が合っているか:</label>
+    <input type="text" id="userAnswerResult" name="userAnswerResult" maxlength="255" size="10" readonly disabled/><br><br>
+
     <label for="userAnswerNum">答えの数:</label>
     <input type="text" id="userAnswerNum" name="userAnswerNum" maxlength="255" size="5" readonly disabled/><br><br>
 
-    <input id="open" type="button" value="答えを見る" /><br><br>
+    <input id="openBtn" type="button" value="答えを見る" /><br><br>
 
     <label for="answer">答え:</label><br>
     <textarea id="answer" name="answer" cols="30" rows="5" readonly style="resize: none;"></textarea>
