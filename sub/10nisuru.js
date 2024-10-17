@@ -8,7 +8,7 @@ submitBtnEl.addEventListener('click', function() {
     alert("数字は5桁までやで")
     return
   }
-  if(!/d+/.test(inputNumber)){
+  if(!/\d+/.test(inputNumber)){
     alert("入力できるのは数字だけやで。空とか符号もダメや")
   }
 
