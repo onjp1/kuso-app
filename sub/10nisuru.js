@@ -50,8 +50,8 @@ function tenNisuru(inputNumber){
                   let location = locationChoices[j]
                   let nextTarget = target.concat()
                   nextTarget[location] = num
-                  let nextinputChoices = inputChoices.filter(f=>f !== num)
-                  let nextLocationChoices = locationChoices.filter(f=>f !== location)
+                  let nextinputChoices = inputChoices.filter((f,fi)=>fi !== i)
+                  let nextLocationChoices = locationChoices.filter((f,fi)=>fi !== j)
                   recursiveCalc(nextTarget, nextinputChoices, nextLocationChoices)
               }
               break
