@@ -61,7 +61,7 @@ function tenNisuru(inputNumber){
           }
       }
       recursiveCalc([], inputChoices, locationChoices)
-      return results
+      return Array.from(new Set(results))
   }
   let numberPermutations = generateNumberPermutations(inputNumber)
   console.log('-----------------------')
