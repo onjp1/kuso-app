@@ -26,7 +26,7 @@ submitBtnEl.addEventListener('click', function() {
   const userAnswerEl = document.getElementById('userAnswer')
   const userAnswerResultEl = document.getElementById('userAnswerResult')
   const userAnswerNumAry = Array.from(userAnswerEl.value).filter(f=>/\d/.test(f))
-  if(numberPermutations.find(f=>f===userAnswerNumAry)){
+  if(numberPermutations.find(f=>f.join()===userAnswerNumAry.join())){
     if(eval(userAnswerEl.value) === 10){
       userAnswerResultEl.value = 'OK'
     }else{
