@@ -1,7 +1,12 @@
 let answerText = ''
+let numberPermutations = ''
 
 const submitBtnEl = document.getElementById('submitBtn')
 submitBtnEl.addEventListener('click', function() {
+  numberPermutations = ''
+  const answerEl = document.getElementById('answer')
+  answerEl.value = ''
+
   const inputNumberEl = document.getElementById('inputNumber')
   const inputNumber = inputNumberEl.value
   if(inputNumber.length > 5){
@@ -12,9 +17,6 @@ submitBtnEl.addEventListener('click', function() {
     alert("入力できるのは数字だけやで。空とか符号もダメや")
   }
 
-  const answerEl = document.getElementById('answer')
-  answerEl.value = ''
-
   const answers = tenNisuru(inputNumber)
   const userAnswerNumEl = document.getElementById('userAnswerNum')
   userAnswerNumEl.value = answers.length
@@ -23,10 +25,13 @@ submitBtnEl.addEventListener('click', function() {
 
   const userAnswerEl = document.getElementById('userAnswer')
   const userAnswerResultEl = document.getElementById('userAnswerResult')
-  if(answers.find(x=>x===userAnswerEl.value)){
-    userAnswerResultEl.value = 'OK'
-  }else{
-    userAnswerResultEl.value = 'NG'
+  const userAnswerNumAry = Array.from(userAnswerEl.value).filter(f=>/\d/.test(f))
+  if(numberPermutations.find(f=>f===userAnswerNumAry)){
+    if(eval(userAnswerEl.value) === 10){
+      userAnswerResultEl.value = 'OK'
+    }else{
+      userAnswerResultEl.value = 'NG'
+    }
   }
 
 }, false);
@@ -67,7 +72,7 @@ function tenNisuru(inputNumber){
       results = setStrResultsAry.map(m=>m.split(','))
       return results
   }
-  let numberPermutations = generateNumberPermutations(inputNumber)
+  numberPermutations = generateNumberPermutations(inputNumber)
   console.log('-----------------------')
   console.log(numberPermutations)
   
