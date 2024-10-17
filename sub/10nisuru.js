@@ -107,8 +107,9 @@ function tenNisuru(inputNumber){
                 if(addOp === '+'){
                   addOp = ''
                 }
-                if(eval(addOp + calcAry.join('')) === 10){
-                  answers.push(calcAry.join(''))
+                const answer = addOp + calcAry.join('')
+                if(eval(answer) === 10){
+                  answers.push(answer)
                 }
               })
           })
