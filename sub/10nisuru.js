@@ -23,7 +23,7 @@ submitBtnEl.addEventListener('click', function() {
 
   const userAnswerEl = document.getElementById('userAnswer')
   const userAnswerResultEl = document.getElementById('userAnswerResult')
-  if(answers.find(x=>x===userAnswerEl.value)){
+  if(eval(userAnswerEl.value) === 10){
     userAnswerResultEl.value = 'OK'
   }else{
     userAnswerResultEl.value = 'NG'
