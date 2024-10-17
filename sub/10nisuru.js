@@ -32,6 +32,8 @@ submitBtnEl.addEventListener('click', function() {
     }else{
       userAnswerResultEl.value = 'NG'
     }
+  }else{
+    userAnswerResultEl.value = 'NG'
   }
 
 }, false);
