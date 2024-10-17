@@ -10,11 +10,11 @@ submitBtnEl.addEventListener('click', function() {
   const inputNumberEl = document.getElementById('inputNumber')
   const inputNumber = inputNumberEl.value
   if(inputNumber.length > 5){
-    alert("数字は5桁までやで")
+    alert("「数字」は5桁までやで")
     return
   }
   if(!/^\d+$/.test(inputNumber)){
-    alert("入力できるのは数字だけやで。空とか符号もダメや")
+    alert("「数字」に入力できるのは数字だけやで。空とか符号もダメや")
   }
 
   const answers = tenNisuru(inputNumber)
@@ -25,6 +25,9 @@ submitBtnEl.addEventListener('click', function() {
 
   const userAnswerEl = document.getElementById('userAnswer')
   const userAnswerResultEl = document.getElementById('userAnswerResult')
+  if(!/^[\+\-\*\/\(\)\d]*$/.test(userAnswerEl.value)){
+    alert("「お前の回答」に入力できるのは数式だけやで")
+  }
   const userAnswerNumAry = Array.from(userAnswerEl.value).filter(f=>/\d/.test(f))
   if(numberPermutations.find(f=>f.join()===userAnswerNumAry.join())){
     if(eval(userAnswerEl.value) === 10){
