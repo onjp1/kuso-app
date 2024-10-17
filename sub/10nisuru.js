@@ -64,7 +64,7 @@ function tenNisuru(inputNumber){
 
       let strResultsAry = results.map(m=>m.join())
       let setStrResultsAry = Array.from(new Set(strResultsAry))
-      results = setStrResultsAry.map(m=>m.split())
+      results = setStrResultsAry.map(m=>m.split(','))
       return results
   }
   let numberPermutations = generateNumberPermutations(inputNumber)
