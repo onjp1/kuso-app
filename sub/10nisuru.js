@@ -1,16 +1,37 @@
+let answerText = ''
+
 const submitBtnEl = document.getElementById('submitBtn')
 submitBtnEl.addEventListener('click', function() {
   const inputNumberEl = document.getElementById('inputNumber')
   const inputNumber = inputNumberEl.value
   if(inputNumber.length > 5){
-    alert(数字は5桁までやで)
+    alert("数字は5桁までやで")
     return
   }
+
+  const answerEl = document.getElementById('answer')
+  answerEl.value = ''
+
   const answers = tenNisuru(inputNumber)
   const userAnswerNumEl = document.getElementById('userAnswerNum')
   userAnswerNumEl.value = answers.length
+
+  answerText = answers.join('\n')
+
+  const userAnswerEl = document.getElementById('userAnswer')
+  const userAnswerResultEl = document.getElementById('userAnswerResult')
+  if(answers.find(x=>x===userAnswerEl.value)){
+    userAnswerResultEl.value = 'OK'
+  }else{
+    userAnswerResultEl.value = 'NG'
+  }
+
+}, false);
+
+const openBtnEl = document.getElementById('openBtn')
+openBtnEl.addEventListener('click', function() {
   const answerEl = document.getElementById('answer')
-  answerEl.value = answers.join('\n')
+  answerEl.value = answerText
 }, false);
 
 function tenNisuru(inputNumber){
