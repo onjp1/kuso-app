@@ -8,6 +8,9 @@ submitBtnEl.addEventListener('click', function() {
     alert("数字は5桁までやで")
     return
   }
+  if(!/d+/.test(str)){
+    alert("入力できるのは数字だけやで。空とか符号もダメや")
+  }
 
   const answerEl = document.getElementById('answer')
   answerEl.value = ''
@@ -99,9 +102,15 @@ function tenNisuru(inputNumber){
                       calcAry.push(op[parseInt(i/2)])
                   }
               }
-              if(eval(calcAry.join('')) === 10){
+              ['+', '-'].forEach(op2=>{
+                let addOp = op2
+                if(addOp === '+'){
+                  addOp = ''
+                }
+                if(eval(addOp + calcAry.join('')) === 10){
                   answers.push(calcAry.join(''))
-              }
+                }
+              })
           })
       })
       
