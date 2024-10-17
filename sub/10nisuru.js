@@ -30,7 +30,7 @@ submitBtnEl.addEventListener('click', function() {
   }
   const userAnswerNumAry = Array.from(userAnswerEl.value).filter(f=>/\d/.test(f))
   if(numberPermutations.find(f=>f.join()===userAnswerNumAry.join())){
-    if(eval(userAnswerEl.value) === 10){
+    if(new Function(`return ${userAnswerEl.value}`)() === 10){
       userAnswerResultEl.value = 'OK'
     }else{
       userAnswerResultEl.value = 'NG'
@@ -122,7 +122,7 @@ function tenNisuru(inputNumber){
                   addOp = ''
                 }
                 const answer = addOp + calcAry.join('')
-                if(eval(answer) === 10){
+                if(new Function(`return ${answer}`)() === 10){
                   answers.push(answer)
                 }
               })
